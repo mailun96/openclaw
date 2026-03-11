@@ -28,6 +28,7 @@ jobs:
       - name: Run Lobster
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: npx tsx src/index.ts || pnpm start
+        # 这里是关键：使用 agent 模式并指定 wechat 协议，强制让它等待扫码
+        run: pnpm exec openclaw agent --protocol wechat
 
  
