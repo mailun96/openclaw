@@ -22,9 +22,12 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Build Project
+        run: pnpm run build || echo "Build skipped"
+
       - name: Run Lobster
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: pnpm start
+        run: npx tsx src/index.ts || pnpm start
 
  
