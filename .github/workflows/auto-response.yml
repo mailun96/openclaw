@@ -28,8 +28,8 @@ jobs:
       - name: Run Lobster
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        # 核心改动：强制使用微信代理模式运行
+        # 加上了核心参数 -m "Hello" 来满足它的运行要求
         run: |
-          npx tsx src/index.ts agent --protocol wechat || pnpm exec openclaw agent --protocol wechat
+          npx tsx src/index.ts agent --protocol wechat -m "Hello" || pnpm exec openclaw agent --protocol wechat -m "Hello"
 
  
